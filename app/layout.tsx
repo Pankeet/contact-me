@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const alan = localFont({
+  src: "../public/fonts/Alan_Sans/AlanSans-VariableFont_wght.ttf",
+  variable: "--font-alan",
+  display: "swap"
+})
 
 export const metadata: Metadata = {
   title: "Contact | Pankeet Manubarwala",
@@ -25,9 +21,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className='h-full antialiased'
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className={`${alan.className} min-h-full flex flex-col`}>
+          {children}
+      </body>
     </html>
   );
 }
