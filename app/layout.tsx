@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { ThemeProvider } from "./components/themeProvier";
 import "./globals.css";
 
 const alan = localFont({
@@ -21,11 +22,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className='h-full antialiased'
       suppressHydrationWarning
     >
       <body className={`${alan.className} min-h-full flex flex-col`}>
-          {children}
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >{children}
+        </ThemeProvider>
       </body>
     </html>
   );
