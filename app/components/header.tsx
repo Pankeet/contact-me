@@ -7,7 +7,7 @@ import { useTheme } from "@teispace/next-themes";
 
 export default function Navbar(){
 
-    const navStyles = "hover:text-violet-500 hover:border-b-2 hover:scale-105 transition-all duration-300";
+    const navStyles = "hover:text-violet-500 hover:border-b-2 hover:scale-105 transition-transform duration-300";
     const [sideBar, setSideBar] = useState<boolean>(false);
     const { theme, setTheme } = useTheme();
 
@@ -23,7 +23,11 @@ export default function Navbar(){
     return <header className="w-full dark:text-white text-slate-800">
         <nav className="flex justify-between items-center md:px-10 md:py-6 px-5 py-5">
             <a href="https://pankeet-manubarwala.vercel.app/" onClick={() => setSideBar(false)}>
-                <Image src="/images/Logo.png" alt="Pm ."  className="fixed top-5 w-auto h-10 rounded-lg dark:opacity-100 opacity-85 hover:scale-110" width={50} height={50} priority/>
+                <Image src="/images/Logo.png" alt="Pm ."  className="z-9999 fixed top-5 w-auto h-10 rounded-xl 
+                dark:opacity-100 opacity-85 shadow-2xl ring-1 ring-cyan-300/20 hover:scale-110 
+                transition-transform duration-300 drop-shadow-[0_0_12px_rgba(125,220,255,0.55)] dark:drop-shadow-[0_0_10px_rgba(125,220,255,0.28)]
+                hover:drop-shadow-[0_0_25px_rgba(125,220,255,0.9)] dark:hover:drop-shadow-[0_0_18px_rgba(125,220,255,0.5)]" 
+                width={50} height={50} priority/>
             </a>  
             <div className="md:flex hidden items-center gap-10 font-medium text-lg">
                 <a href="https://pankeet-manubarwala.vercel.app/" className={navStyles} onClick={() => setSideBar(false)}>About</a>
@@ -32,17 +36,17 @@ export default function Navbar(){
                 <button  
                     aria-label="Toggle Theme"
                     onClick={toggleTheme}>
-                     <span className="hidden dark:block hover:text-violet-600 rounded-xl">
+                     <span className="hidden dark:block hover:bg-slate-500 rounded-xl p-1">
                         <Sun />
                     </span>
-                    <span className="block dark:hidden hover:text-violet-600 rounded-xl">
+                    <span className="block dark:hidden hover:bg-slate-500 rounded-xl p-1 hover:text-white">
                         <Moon />
                     </span>
                 </button>
             </div>
             <div className="md:hidden">
-                <button onClick={() => setSideBar(!sideBar)} >
-                    {sideBar ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                <button onClick={() => setSideBar(!sideBar)} className="fixed top-6 right-10">
+                    {sideBar ? <X className="w-7 h-6" /> : <Menu className="w-7 h-6" />}
                 </button>
             </div>
         </nav>

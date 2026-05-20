@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { ThemeProvider } from "./components/themeProvier";
 import "./globals.css";
+import Navbar from "./components/header";
 
 const alan = localFont({
   src: "../public/fonts/Alan_Sans/AlanSans-VariableFont_wght.ttf",
@@ -30,7 +31,9 @@ export default function RootLayout({
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
-          >{children}
+          >
+          <Navbar /> 
+            {children}
         </ThemeProvider>
       </body>
     </html>

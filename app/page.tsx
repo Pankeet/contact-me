@@ -4,7 +4,6 @@ import Navbar from "./components/header"
 export default function Home() {
   return (
     <div className="font-inter">
-      <Navbar />
       <main>
         <ContactMe />
       </main>
