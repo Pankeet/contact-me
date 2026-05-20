@@ -3,10 +3,12 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
 import Image from "next/image";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaUser } from "react-icons/fa";
 import { IoMailOutline, IoCallOutline, IoLocationOutline } from "react-icons/io5";
+import { MdOutlineMail, MdOutlineSubject  } from "react-icons/md";
+import { LuPencil } from "react-icons/lu";
 import CardElement from "./card";
-import { InputBox } from "./input";
+import { InputBox, TextArea } from "./input";
 import toast from "react-hot-toast";
 
 export default function ContactMe(){
@@ -44,7 +46,7 @@ export default function ContactMe(){
     }
 
     return (
-    <main className="grid lg:grid-cols-2 px-16 py-24">
+    <main className="grid lg:grid-cols-2 px-9 lg:px-16 py-12 lg:py-24">
         <section className="lg:col-span-1">
             <div>
                 <span className="lg:text-2xl text-xl text-purple-600/80">
@@ -72,17 +74,17 @@ export default function ContactMe(){
             </div>
             <div className="pt-10 flex flex-col lg:flex-row gap-7">
                 <div className="flex-1 ">
-                    <CardElement Icon={<IoCallOutline size={20} />} text="Email" description="pankeet04@gmail.com" />
+                    <CardElement Icon={<IoMailOutline size={20} />} text="Email" description="pankeet04@gmail.com" />
                 </div>
                 <div className="flex-1">
-                    <CardElement Icon={<IoMailOutline size={20}/>} text="Phone" description="+91 9875142251" />
+                    <CardElement Icon={<IoCallOutline size={20}/>} text="Phone" description="+91 9875142251" />
                 </div>
                 <div className="flex-1">
                     <CardElement Icon={<IoLocationOutline size={20} />} text="Location" description="Vadodara, Gujarat" />
                 </div>
             </div>
         </section>
-        <section className="lg:col-span-1 mt-28 lg:mt-0 lg:place-content-center lg:px-12">
+        <section className="lg:col-span-1 place-content-center mt-16 lg:mt-0 lg:place-content-center lg:px-12">
             <div className="relative rounded-3xl px-5 py-3 backdrop-blur-xl">
                 <span>
                     <IoMailOutline className="p-2 w-10 h-10 rounded-lg text-violet-700 bg-violet-300/60 cursor-pointer" />
@@ -94,15 +96,15 @@ export default function ContactMe(){
                 <div>
                     <form onSubmit={send_mail}>
                         <div className="flex gap-4 my-5">
-                            <InputBox inputRef={nameRef} placeholder="Your Name" type="text" isTextArea={false}/>
-                            <InputBox inputRef={emailRef} placeholder="Your Email" type="email" isTextArea={false}/>
+                            <InputBox inputRef={nameRef} placeholder="Your Name" type="text" icon={<FaUser />}/>
+                            <InputBox inputRef={emailRef} placeholder="Your Email" type="email" icon={<MdOutlineMail size={22} />}/>
                         </div>
                         <div className="flex flex-col gap-4 w-full">
-                            <InputBox inputRef={subjectRef} placeholder="Subject" type="text" isTextArea={false}/>
-                            <InputBox inputRef={messageRef} placeholder="Message" isTextArea={true} />
+                            <InputBox inputRef={subjectRef} placeholder="Subject" type="text" icon={<MdOutlineSubject size={22} />}/>
+                            <TextArea inputRef={messageRef} placeholder="Message" icon={<LuPencil />} />
                         </div>
                         <div className="w-full flex justify-center mt-7">
-                            <button type="submit" className="bg-blue-800/50 px-16 py-3 rounded-xl text-xl cursor-pointer">Submit</button>
+                            <button type="submit" className="bg-violet-800/80 text-white px-16 py-3 rounded-xl text-xl cursor-pointer">Submit</button>
                         </div>
                      </form>
                 </div>
