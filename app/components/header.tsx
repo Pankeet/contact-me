@@ -45,10 +45,32 @@ export default function Navbar(){
                 </button>
             </div>
             <div className="md:hidden">
-                <button onClick={() => setSideBar(!sideBar)} className="fixed top-6 right-10">
+                <button onClick={() => setSideBar(!sideBar)} className="fixed top-6 right-10 z-50">
                     {sideBar ? <X className="w-7 h-6" /> : <Menu className="w-7 h-6" />}
                 </button>
             </div>
         </nav>
+                <div className={`fixed inset-0 z-50 md:hidden transition-opacity duration-300 ${sideBar ? "opacity-100 visible" :"opacity-0 invisible"}`}>
+                    <button aria-label="Close sidebar" className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setSideBar(false)} />
+                    <div className={`absolute right-0 top-0 h-screen w-64 bg-white dark:bg-slate-900 shadow-2xl p-8 flex flex-col gap-8 transition-transform duration-300 ease-in-out ${sideBar ? "translate-x-0" : "translate-x-full"}`}>
+
+                        <a href="https://pankeet-manubarwala.vercel.app/" onClick={() => setSideBar(false)} className={`${navStyles} mt-12`} >
+                            About
+                        </a>
+
+                        <a href="https://pankeet-manubarwala.vercel.app/projects" onClick={() => setSideBar(false)} className={navStyles}>
+                            Projects
+                        </a>
+
+                        <Link href="/" onClick={() => setSideBar(false)} className="text-violet-600" >
+                            Contact
+                        </Link>
+
+                        <button onClick={toggleTheme} className="flex items-center gap-3 mt-5 ">
+                            {theme === "dark" ? <Sun /> : <Moon /> }
+                            Theme
+                        </button>
+                    </div>
+                </div>
     </header>
 }

@@ -11,6 +11,14 @@ import CardElement from "./card";
 import { InputBox, TextArea } from "./input";
 import toast from "react-hot-toast";
 
+function gitHub(){
+    globalThis.open("https://github.com/Pankeet","_blank");
+}
+
+function linkedIn(){
+    globalThis.open("https://www.linkedin.com/in/pankeet04","_blank");
+}
+
 export default function ContactMe(){
 
     const nameRef = useRef<HTMLInputElement>(null);
@@ -46,7 +54,7 @@ export default function ContactMe(){
     }
 
     return (
-    <main className="grid lg:grid-cols-2 px-9 lg:px-16 py-12 lg:py-24">
+    <main className="grid lg:grid-cols-2 px-9 lg:px-16 py-12 lg:pt-24">
         <section className="lg:col-span-1">
             <div>
                 <span className="lg:text-2xl text-xl text-purple-600/80">
@@ -56,18 +64,18 @@ export default function ContactMe(){
             <div className="lg:text-5xl text-3xl mt-2.5 font-semibold">
                 <span>
                     Let&apos;s Create something <br className="hidden lg:block" />
-                    amaxing <span className="text-purple-600/90 font-semibold">toghther</span>.
+                    amaxing <span className="text-purple-600/90 font-semibold">together</span>.
                 </span>
             </div>
             <div className="pt-4">
-                <span className="text-lg">
+                <div className="text-lg">
                     I would love to hear from you.<br />
                     Fill out the form or reach me through:<br />
                     <div className="flex gap-3 mt-4">
-                        <FaGithub size={32} className="cursor-pointer"/>
-                        <FaLinkedin size={32} className="cursor-pointer" />
+                        <FaGithub size={32} className="cursor-pointer" onClick={gitHub}/>
+                        <FaLinkedin size={32} className="cursor-pointer" onClick={linkedIn} />
                     </div>
-                </span>
+                </div>
             </div>
             <div className="pt-10">
                 <Image src="/images/scribble.svg" alt="scribble " width={100} height={20} className="w-24 h-auto drop-shadow-[0_0_8px_rgba(139,92,246,0.45)]" priority />
@@ -84,8 +92,8 @@ export default function ContactMe(){
                 </div>
             </div>
         </section>
-        <section className="lg:col-span-1 place-content-center mt-16 lg:mt-0 lg:place-content-center lg:px-12">
-            <div className="relative rounded-3xl px-5 py-3 backdrop-blur-xl">
+        <section className="lg:col-span-1 place-content-center mt-16 lg:mt-0 flex justify-center items-center">
+            <div className="relative rounded-3xl px-5 py-3 backdrop-blur-xl w-full lg:max-w-md">
                 <span>
                     <IoMailOutline className="p-2 w-10 h-10 rounded-lg text-violet-700 bg-violet-300/60 cursor-pointer" />
                 </span>

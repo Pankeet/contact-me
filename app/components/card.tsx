@@ -1,5 +1,3 @@
-"use client";
-
 import { ReactElement  } from "react";
 
 export default function CardElement({Icon,text,description} : Readonly<{text:string,Icon: ReactElement ,description:string}>){
