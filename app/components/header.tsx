@@ -46,11 +46,11 @@ export default function Navbar(){
             </div>
             <div className="md:hidden">
                 <button onClick={() => setSideBar(!sideBar)} className="fixed top-6 right-10 z-50">
-                    {sideBar ? <X className="w-7 h-6" /> : <Menu className="w-7 h-6" />}
+                    {sideBar ? <X className="w-8 h-8" /> : <Menu className="w-7 h-6" />}
                 </button>
             </div>
         </nav>
-                <div className={`fixed inset-0 z-50 md:hidden transition-opacity duration-300 ${sideBar ? "opacity-100 visible" :"opacity-0 invisible"}`}>
+                <div className={`fixed inset-0 z-40 md:hidden transition-opacity duration-300 ${sideBar ? "opacity-100 visible" :"opacity-0 invisible"}`}>
                     <button aria-label="Close sidebar" className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setSideBar(false)} />
                     <div className={`absolute right-0 top-0 h-screen w-64 bg-white dark:bg-slate-900 shadow-2xl p-8 flex flex-col gap-8 transition-transform duration-300 ease-in-out ${sideBar ? "translate-x-0" : "translate-x-full"}`}>
 
